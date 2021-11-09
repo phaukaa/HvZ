@@ -1,0 +1,18 @@
+<section class="greyBackground">
+  <div id="humanBiteCodeContainer" *ngIf="isHuman">
+    <h2 id="biteCodeTitle" *ngIf="!isMobile">Bite Code:</h2>
+    <h2 id="biteCodeTitleMobile" *ngIf="isMobile">Bite Code:</h2>
+    <h2 id="biteCode">{{biteCode}}</h2>
+  </div>
+
+  <div id="zombieBiteCodeContainer" *ngIf="!isHuman">
+    <h2>Register Bite Code</h2>
+    <mat-error *ngIf="biteCodeError">Invalid bite code</mat-error>
+    <div id="biteCodeAndLocationContainer">
+      <textarea id="biteCodeEntry" cdkTextareaAutosize placeholder="Bite code" [(ngModel)]="biteCodeInput"></textarea>
+      <button (click)="getLocation()" class="normalGreyButton">Add location</button>
+    </div>
+    <textarea id="storyEntry" cdkTextareaAutosize placeholder="Kill story (Optional)" [(ngModel)]="storyInput"></textarea>
+    <button id="saveButton" (click)="saveKill()" class="normalGreyButton">Save</button>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+<section class="squadContainer">
+  <h2>{{data.name}}</h2>
+  <h3>Members:</h3>
+  <ul>
+    <li *ngFor="let member of data.members" id="memberItem">
+      <p>{{member.player.name}}</p>
+      <p *ngIf="member.player.human" id="living">Alive</p>
+      <p *ngIf="!member.player.human" id="dead">Zombie</p>
+    </li>
+  </ul>
+</section>

@@ -1,0 +1,44 @@
+<section class="greyBackground">
+  <div class="chatContainer">
+    <section class="chatHeaderContainer">
+      <h2 id="chatTitle" *ngIf="!isMobile">Chat</h2>
+      <div id="buttonContainer" *ngIf="playerHasGame">
+        <button class="normalGreyButton" style="color: #B2BBBD;" (click)="displayGlobal()" *ngIf="selectedChat !== 'GLOBAL'">Global</button>
+        <button class="normalGreyButton" style="border-color: #FEA520" disabled *ngIf="selectedChat === 'GLOBAL'">Global</button>
+        <button class="normalGreyButton" style="color: #B2BBBD;" *ngIf="playerIsHuman && selectedChat !== 'HUMAN'" (click)="displayFaction()" >Human</button>
+        <button class="normalGreyButton" style="border-color: #FEA520" disabled *ngIf="selectedChat === 'HUMAN'">Human</button>
+        <button class="normalGreyButton" style="color: #B2BBBD;" *ngIf="!playerIsHuman && selectedChat !== 'ZOMBIE'" (click)="displayFaction()">Zombie</button>
+        <button class="normalGreyButton" style="border-color: #FEA520" disabled *ngIf="selectedChat === 'ZOMBIE'">Zombie</button>
+        <button class="normalGreyButton" style="color: #B2BBBD;" *ngIf="playerHasSquad && selectedChat !== 'SQUAD'" (click)="displaySquad()">Squad</button>
+        <button class="normalGreyButton" style="border-color: #FEA520" disabled *ngIf="selectedChat === 'SQUAD'">Squad</button>
+      </div>
+    </section>
+    <section id="messageContainer" #chat [scrollTop]="chat.scrollHeight" *ngIf="!isMobile && playerIsHuman">
+      <app-message *ngFor="let message of chatMessages"
+                   [timeSent]="message.time"
+                   [sender]="message.sender"
+                   [message]="message.content">
+      </app-message>
+    </section>
+    <section id="messageContainerZombie" #chat [scrollTop]="chat.scrollHeight" *ngIf="!isMobile && !playerIsHuman">
+      <app-message *ngFor="let message of chatMessages"
+                   [timeSent]="message.time"
+                   [sender]="message.sender"
+                   [message]="message.content">
+      </app-message>
+    </section>
+    <section id="messageContainerMobile" *ngIf="isMobile">
+      <app-message *ngFor="let message of chatMessages"
+                   [timeSent]="message.time"
+                   [sender]="message.sender"
+                   [message]="message.content">
+      </app-message>
+    </section>
+    <form class="sendContainer" *ngIf="playerHasGame">
+      <input id="chatInput" type="text" placeholder="Type a chat message..." [(ngModel)]="submitText" (keydown.enter)="submitChat()" name="chatInput">
+      <button id="chatButton" class="normalGreyButton" type="submit" (click)="submitChat()">
+        Send
+      </button>
+    </form>
+  </div>
+</section>

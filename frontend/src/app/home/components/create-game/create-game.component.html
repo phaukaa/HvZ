@@ -1,0 +1,27 @@
+<div class="mat-dialog-background">
+  <mat-card-title>
+    <mat-error *ngIf="title.textLength == 0 && buttonClicked">Field can't be empty</mat-error>
+    <textarea #title id="title" required cdkTextareaAutosize placeholder="Game name" maxlength="255" [(ngModel)]="data.name"></textarea>
+  </mat-card-title>
+  <mat-dialog-content>
+    <textarea maxlength="255" id="description" placeholder="Game description (Optional)" cdkTextareaAutosize [(ngModel)]="data.description"></textarea>
+    <mat-label class="text">Game start and end dates (Optional):</mat-label>
+    <section class="text">
+      <mat-form-field appearance="fill">
+        <input matInput [matDatepicker]="startPicker" placeholder="Start date" [(ngModel)]="data.startTime">
+        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+      </mat-form-field>
+    </section>
+    <section class="text">
+      <mat-form-field appearance="fill">
+        <input matInput [matDatepicker]="startPicker" placeholder="End date" [(ngModel)]="data.endTime">
+        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+      </mat-form-field>
+    </section>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button class="normalGreyButton" (click)="closeDialog()">Create</button>
+  </mat-dialog-actions>
+</div>

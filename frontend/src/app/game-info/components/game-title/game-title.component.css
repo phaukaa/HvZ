@@ -1,0 +1,16 @@
+.gameTitleContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 3%;
+}
+.normalGreyButton {
+  align-self: center;
+  margin-right: 14%;
+}
+#title {
+  font-size: 200%;
+  line-height: 20px;
+  margin-left: 3%;
+  margin-right: 3%;
+  flex-grow: 2;
+}

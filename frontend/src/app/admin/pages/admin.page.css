@@ -1,0 +1,32 @@
+#adminContainer {
+  display: flex;
+  justify-content: space-evenly;
+  height: 85%;
+}
+.componentContainer {
+  width: 33%;
+}
+#map {
+  row-gap: 0;
+  align-self: flex-end;
+  width: 100%;
+  height: 100%;
+}
+#chat {
+  width: 100%;
+  height: 60%;
+}
+#description {
+  height: 39%;
+}
+#player {
+  width: 24%;
+}
+/****************************
+ *     MOBILE ATTRIBUTES    *
+ ****************************/
+#adminContainerMobile {
+  display: flex;
+  flex-direction: column;
+  width: 97%;
+}

@@ -1,0 +1,94 @@
+<body>
+<app-game-title
+  [gameTitle]="game.name"
+  (joinGame)="registerUser()"
+  [playerHasJoined]="game.playerID != null"
+></app-game-title>
+<main id="gameInfoPageContainer" *ngIf="!isMobile">
+  <app-game-description id="gameDescriptionElement"
+                        [gameDescription]="game.description"
+  ></app-game-description>
+  <section class="componentContainer">
+    <app-squad [squad]="game.squad_info"
+               [allSquads]="this.allSquads"
+               (joinThis)="joinSquad($event)"
+               (createThis)="createSquad($event)"
+               (leaveThis)="leaveSquad()"
+               (requestLocation)="getLocation()"
+               [playerLocation]="playerLocation"
+               [playerID]="game.playerID"
+               [gameID]="game.gameID"
+               (updateCheckIns)="updateCheckIns()"
+               [playerHasGame]="game.playerID != null"
+               (updateSquads)="getAllSquads()"
+    ></app-squad>
+    <app-map class="map"
+             [mapInfo]="game.map_info"
+             [kills]="game.kills"
+             [missions]="game.missions"
+             [locationRequested]="locationRequested"
+             (currentLocation)="locationFound($event)"
+             [squadCheckIns]="game.squadCheckIns"
+    ></app-map>
+  </section>
+  <section class="componentContainer">
+    <app-bite-code
+      [biteCode]="game.bite_code"
+      (requestLocation)="getLocation()"
+      [locationOfKill]="playerLocation"
+      [playerID]="game.playerID"
+      [gameID]="game.gameID"
+      (updateKills)="updateKills()"
+      [isHuman]="game.player_is_human"
+    ></app-bite-code>
+    <app-chat class="chat"
+              [chatMessages]="game.messages"
+              [playerIsHuman]="game.player_is_human"
+              [playerHasSquad]="game.squad_info != null"
+              [playerHasGame]="game.playerID != null"
+              (globalChat)="loadGlobalChat()"
+              (factionChat)="loadFactionChat()"
+              (squadChat)="loadSquadChat()"
+              (sendChat)="sendChatMessage($event)"
+    ></app-chat>
+  </section>
+</main>
+
+
+<!-- ************************************************  MOBILE VIEW  ************************************************ -->
+<main id="gameInfoPageContainerMobile" *ngIf="isMobile">
+  <app-game-description
+                        [gameDescription]="game.description"
+  ></app-game-description>
+  <app-squad [squad]="game.squad_info"
+             [allSquads]="this.allSquads"
+             (joinThis)="joinSquad($event)"
+             (createThis)="createSquad($event)"
+  ></app-squad>
+  <app-map class="map"
+           [mapInfo]="game.map_info"
+           [kills]="game.kills"
+           [missions]="game.missions"
+           [locationRequested]="locationRequested"
+           (currentLocation)="locationFound($event)"
+  ></app-map>
+  <app-bite-code
+    [biteCode]="game.bite_code"
+    (requestLocation)="getLocation()"
+    [locationOfKill]="playerLocation"
+    [playerID]="game.playerID"
+    [gameID]="game.gameID"
+    (updateKills)="updateKills()"
+    [isHuman]="game.player_is_human"
+  ></app-bite-code>
+  <app-chat class="chat"
+            [chatMessages]="game.messages"
+            [playerIsHuman]="game.player_is_human"
+            [playerHasSquad]="game.squad_info != null"
+            (globalChat)="loadGlobalChat()"
+            (factionChat)="loadFactionChat()"
+            (squadChat)="loadSquadChat()"
+            (sendChat)="sendChatMessage($event)"
+  ></app-chat>
+</main>
+</body>

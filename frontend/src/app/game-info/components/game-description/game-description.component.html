@@ -1,0 +1,31 @@
+<section class="greyBackground">
+  <section class="gameDescriptionContainer">
+    <div id="description" *ngIf="gameDescription.length > 0">
+      <h2>Game description:</h2>
+      <p>{{gameDescription}}</p>
+    </div>
+    <div id="rules">
+      <h2>Rules:</h2>
+      <ol>
+        <li>
+          There are two factions playing the game: Humans and Zombies.
+        </li>
+        <li>
+          The job of a human is to remain human. The goal of a zombie is to convert as many humans as possible.
+        </li>
+        <li>
+          To convert a human, a zombie has to tag them. To tag someone means to touch them.
+        </li>
+        <li>
+          Once converted, a player is a zombie for the rest of the game.
+        </li>
+        <li>
+          In order to stop a zombie from tagging them, a human can shoot them with a Nerf gun or throw a clean, rolled up sock at them. This stuns the zombie
+        </li>
+        <li>
+          A stunned zombie has to stand still for 10 seconds.
+        </li>
+      </ol>
+    </div>
+  </section>
+</section>

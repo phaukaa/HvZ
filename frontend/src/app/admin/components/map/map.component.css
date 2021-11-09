@@ -1,0 +1,52 @@
+.greyBackground {
+  width: 102%;
+  padding-right: 0;
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#mission {
+  display: flex;
+  justify-content: space-between;
+}
+.smallDescription {
+  font-size: 80%;
+  width: 60%;
+  align-self: center;
+  font-style: italic;
+}
+#newMissionContainer {
+  display: flex;
+  justify-content: space-around;
+}
+#newMissionButton {
+  align-self: center;
+}
+.dataContainer {
+  line-height: 0;
+  height: 0;
+}
+#changeText {
+  color: #00FF00;
+  align-self: flex-start;
+  margin: 0;
+  padding-top: 1%;
+  padding-right: 1%;
+}
+.changeText {
+  color: #00FF00;
+  align-self: flex-start;
+  margin: 0;
+  padding-top: 1%;
+  padding-right: 1%;
+}
+#changeContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-top: #FEA520 2px solid;
+}
+#changeButton {
+  align-self: flex-start;
+}

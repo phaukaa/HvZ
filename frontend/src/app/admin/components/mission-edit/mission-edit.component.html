@@ -1,0 +1,37 @@
+<div>
+  <mat-error *ngIf="title.textLength == 0 && buttonClicked">Field can't be empty</mat-error>
+  <textarea maxlength="255" class="text" id="title" #title cdkTextareaAutosize mat-dialog-title placeholder="Mission name (Required)"
+            [(ngModel)]="data.name"></textarea>
+</div>
+<mat-dialog-content>
+  <div>
+    <mat-error *ngIf="description.textLength == 0 && buttonClicked">Field can't be empty</mat-error>
+    <textarea maxlength="255" class="text" #description id="description" cdkTextareaAutosize
+              [(ngModel)]="data.description" placeholder="Mission description (Required)"></textarea>
+  </div>
+
+  <mat-label class="text">Choose a start and end date (Optional):</mat-label>
+  <mat-error *ngIf="illegalDate">End date can't be before start date</mat-error>
+  <section class="text" id="dateTimeContainer">
+    <mat-form-field appearance="fill">
+      <input matInput [matDatepicker]="startPicker" placeholder="Start date" [(ngModel)]="data.startTime">
+      <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+      <mat-datepicker #startPicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <input matInput [matDatepicker]="endPicker" placeholder="End date" [(ngModel)]="data.endTime">
+      <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+      <mat-datepicker #endPicker></mat-datepicker>
+    </mat-form-field>
+  </section>
+</mat-dialog-content>
+
+<mat-dialog-actions id="buttonContainer">
+  <mat-slide-toggle class="text" [(ngModel)]="data.isHuman">
+    <p *ngIf="data.isHuman">Human mission</p>
+    <p *ngIf="!data.isHuman">Zombie mission</p>
+  </mat-slide-toggle>
+  <button id="saveMission" class="normalGreyButton" (click)="closeDialog(true)">Save</button>
+  <button id="deleteMission" class="normalGreyButton" (click)="closeDialog(false)">Delete</button>
+</mat-dialog-actions>

@@ -1,0 +1,6 @@
+<section class="greyBackground">
+  <h2>Game description:</h2>
+  <section class="gameDescriptionContainer">
+    <textarea [(ngModel)]="gameDescription" maxlength="255" placeholder="Game description" id="description" cdkTextareaAutosize (change)="outputDesc()"></textarea>
+  </section>
+</section>

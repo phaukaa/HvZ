@@ -1,0 +1,43 @@
+#playerContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+  overflow-y: auto;
+  border-top: #FEA520 2px solid;
+  align-self: flex-end;
+  row-gap: 1%;
+}
+#player {
+  width: 94%;
+  align-self: center;
+}
+#playerSelected {
+  width: 94%;
+  align-self: center;
+}
+#topContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+#newPlayerButton {
+  align-self: center;
+}
+#playersPageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+#playerContainerMobile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+  border-top: #FEA520 2px solid;
+  align-self: flex-end;
+  row-gap: 1vh;
+}

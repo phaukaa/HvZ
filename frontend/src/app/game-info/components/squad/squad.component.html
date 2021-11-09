@@ -1,0 +1,105 @@
+<section class="greyBackground" *ngIf="!isMobile && playerHasGame">
+  <section *ngIf="squad != null">
+    <h2>{{squad.name}}</h2>
+    <div id="memberContainer">
+      <h3>Members:</h3>
+      <ul>
+        <li *ngFor="let member of squad.members" id="memberItem">
+          <p>{{member.name}}</p>
+          <p *ngIf="member.state" id="living">Alive</p>
+          <p *ngIf="!member.state" id="dead">Zombie</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="noSquadContainer" *ngIf="squad == null && !this.join && !this.create">
+    <h2 style="padding: 1vh">Squad</h2>
+    <p style="padding: 1vh">Looks like you aren't in a squad...</p>
+    <div style="padding: 1vh">
+      <button class="normalGreyButton" (click)="joinClick()">Join Squad</button>
+      <button class="normalGreyButton" (click)="this.create = true">Create Squad</button>
+    </div>
+  </section>
+  <section *ngIf="this.join" class="squadContainer">
+    <h2>Squads</h2>
+    <ul>
+      <li *ngFor="let squad of this.allSquads">
+        <p>Name: {{squad.name}}</p>
+        <p>Members: {{squad.members.length}}</p>
+        <p>Deceased: {{squad.numDead}}</p>
+        <button class="normalGreyButton" (click)="joinSquad(squad.id)">Join Squad</button>
+      </li>
+    </ul>
+  </section>
+  <section *ngIf="this.create">
+    <h2>Create a squad!</h2>
+    <ng-form>
+      Squad name:
+      <input type="text" [(ngModel)]="createSquadName" (keydown.enter)="createSquad()" name="squadName">
+      <button class="normalGreyButton" (click)="createSquad()">Create</button>
+    </ng-form>
+  </section>
+  <section id="buttonContainer">
+    <button class="normalGreyButton" (click)="leaveSquad()" *ngIf="squad != null">Leave Squad</button>
+    <button class="normalGreyButton" (click)="squadCheckIn()" *ngIf="squad != null">Check In</button>
+  </section>
+</section>
+<section class="greyBackground" *ngIf="!playerHasGame">
+  <section class="squadContainer">
+    <h2>Squads</h2>
+    <ul>
+      <li *ngFor="let squad of this.allSquads">
+        <p>Name: {{squad.name}}</p>
+        <p>Members: {{squad.members.length}}</p>
+        <p>Deceased: {{squad.numDead}}</p>
+      </li>
+    </ul>
+  </section>
+</section>
+
+<!-- ************************************************  MOBILE VIEW  ************************************************ -->
+<section class="greyBackground" *ngIf="isMobile && playerHasGame">
+  <section class="squadContainer" *ngIf="squad != null">
+    <h2>{{squad.name}}</h2>
+    <div id="memberContainerMobile">
+      <h3>Members:</h3>
+      <ul>
+        <li *ngFor="let member of squad.members" id="memberItemMobile">
+          <p>{{member.name}}</p>
+          <p *ngIf="member.state" class="living">Alive</p>
+          <p *ngIf="!member.state" class="dead">Zombie</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="noSquadContainer" *ngIf="squad == null && !this.join && !this.create">
+    <h2 style="padding: 1vh">Squad</h2>
+    <p style="padding: 1vh">Looks like you aren't in a squad...</p>
+    <div style="padding: 1vh">
+      <button class="normalGreyButton" (click)="this.join = true">Join Squad</button>
+      <button class="normalGreyButton" (click)="this.create = true">Create Squad</button>
+    </div>
+  </section>
+  <section *ngIf="this.join">
+    <h2>Squads</h2>
+    <ul>
+      <li *ngFor="let squad of this.allSquads">
+        <p>Name: {{squad.name}}</p>
+        <p>Members: {{squad.members.length}}</p>
+        <p>Deceased: {{squad.numDead}}</p>
+        <button class="normalGreyButton" (click)="joinSquad(squad.id)">Join Squad</button>
+      </li>
+    </ul>
+  </section>
+  <section *ngIf="this.create">
+    <h2>Create a squad!</h2>
+    <ng-form>
+      Squad name:
+      <input type="text" [(ngModel)]="createSquadName" (keydown.enter)="createSquad()" name="squadName">
+    </ng-form>
+  </section>
+  <section class="buttonContainer">
+    <button class="normalGreyButton" (click)="leaveSquad()" *ngIf="squad != null">Leave Squad</button>
+    <button class="normalGreyButton" (click)="squadCheckIn()" *ngIf="squad != null">Check In</button>
+  </section>
+</section>

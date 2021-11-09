@@ -1,0 +1,11 @@
+<section class="greyBackground">
+  <section class="squadContainer">
+    <h2>Squads</h2>
+    <ul>
+      <li *ngFor="let squad of squads" class="squadItem">
+        <p>{{squad.name}}</p>
+        <button class="normalGreyButton" (click)="viewSquad(squad.id)">View</button>
+      </li>
+    </ul>
+  </section>
+</section>

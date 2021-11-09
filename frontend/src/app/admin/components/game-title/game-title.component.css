@@ -1,0 +1,29 @@
+.gameTitleContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1%;
+  margin-left: 2.5%;
+}
+.normalGreyButton {
+  align-self: center;
+  margin-right: 14%;
+}
+#title {
+  font-size: 200%;
+  line-height: 20px;
+  margin-left: 3%;
+  width: 50%;
+  font-weight: bold;
+}
+#stateSelector {
+  align-self: flex-start;
+  margin-top: 1px;
+  font-size: 115%;
+  margin-left: 1%;
+}
+#saveButton {
+  align-self: flex-start;
+  margin-top: 1px;
+  width: 160px;
+  font-size: 140%;
+}

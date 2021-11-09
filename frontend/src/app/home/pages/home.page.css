@@ -1,0 +1,87 @@
+.loginSection {
+  background-color: #272D2D;
+  border-right: #FEA520 solid 2px;
+  width: 30%;
+  position: absolute;
+  top: 0;
+  bottom:0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.logo {
+  width: 70%;
+  margin-left: 15%;
+}
+.activeGamesSection {
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+}
+.titleSection {
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-start;
+  width: 100%;
+}
+.activeGamesTitle {
+  align-self: center;
+  font-size: 200%;
+  margin-left: 10%;
+}
+.normalGreyButton {
+  margin-right: 5%;
+  align-self: center;
+}
+#activeGameList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  row-gap: 15px;
+  overflow-y: auto;
+}
+.activeGameElement {
+  width: 45%;
+}
+.homePageContainer {
+  display: flex;
+  max-height: 97vh;
+  justify-content: flex-end;
+}
+.userManual {
+  border: none;
+  background: none;
+  color: #FEA520;
+  border-bottom: #FEA520 solid 1px;
+  width: fit-content;
+  align-self: center;
+}
+                            /****************************
+                             *     MOBILE ATTRIBUTES    *
+                             ****************************/
+.homePageContainerMobile {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.loginSectionMobile {
+  background-color: #272D2D;
+  border-bottom: #FEA520 solid 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.activeGamesSectionMobile {
+  display: flex;
+  flex-direction: column;
+}
+#activeGameListMobile {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  row-gap: 15px;
+  padding-left: 0;
+}

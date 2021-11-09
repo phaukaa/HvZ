@@ -1,0 +1,78 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: black;
+  color: #B2BBBD;
+  font-family: 'Gemunu Libre', sans-serif;
+  font-weight: bold;
+}
+.componentContainer {
+  display: flex;
+  width: 30%;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-direction: column;
+  row-gap: 1%;
+}
+.normalGreyButton {
+  /* Button Background */
+  background: #272D2D;
+  border: 2px solid #B2BBBD;
+  box-sizing: border-box;
+  padding: 5px;
+  height: fit-content;
+  /* Button Text */
+  font-family: Gemunu Libre, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 120%;
+  line-height: 89%;
+  align-items: center;
+  color: #FEA520;
+}
+.normalGreyButtonMobile {
+  /* Button Background */
+  background: #272D2D;
+  border: 2px solid #B2BBBD;
+  box-sizing: border-box;
+  padding: 5px;
+  height: fit-content;
+  min-width: fit-content;
+  /* Button Text */
+  font-family: Gemunu Libre, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 90%;
+  line-height: 89%;
+  align-items: center;
+  color: #FEA520;
+}
+.greyBackground {
+  border: 2px solid #FEA520;
+  background: #272D2D;
+  width: 100%;
+  height: 100%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+.blackBackground {
+  background-color: black;
+  border: 2px solid #FEA520;
+  width: 100%;
+  padding: 5px;
+}
+textarea {
+  background-color: black;
+  border: 1px solid #B2BBBD;
+  width: 100%;
+  padding: 5px;
+  color: #B2BBBD;
+}
+
+mat-dialog-container {
+  border: 2px solid #FEA520;
+  border-radius: 0 !important;
+  background-color: #272D2D !important;
+}
+
+html, body { height: 100%;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

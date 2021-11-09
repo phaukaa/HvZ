@@ -1,0 +1,12 @@
+<section class="greyBackground" id="playersPageContainer">
+  <div id="topContainer">
+    <h1>Players:</h1>
+    <button id="newPlayerButton" class="normalGreyButton" (click)="createPlayer()">Create Player</button>
+  </div>
+  <div id="playerContainer" *ngIf="!isMobile">
+    <app-single-player class="player" *ngFor="let player of players" [playerInfo]="player" (click)="editPlayer(player)"></app-single-player>
+  </div>
+  <div id="playerContainerMobile" *ngIf="isMobile">
+    <app-single-player class="player" *ngFor="let player of players" [playerInfo]="player" (click)="editPlayer(player)"></app-single-player>
+  </div>
+</section>

@@ -1,0 +1,102 @@
+.infoContainer {
+  display: flex;
+  justify-content: space-between;
+}
+#buttonPlaceholder {
+  visibility: hidden;
+}
+#buttonContainer {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2%;
+}
+#name {
+  line-height: 40px;
+  margin: 0;
+  align-self: center;
+}
+.normalGreyButton {
+  align-self: center;
+}
+.blackBackground {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.time {
+  line-height: 18px;
+  margin: 0;
+}
+.joinedContainer {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+}
+.joined {
+  color: #00FF00;
+  line-height: 20px;
+  margin: 0;
+}
+.timeContainer {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+}
+.statusContainer {
+  display: flex;
+  justify-content: space-around;
+}
+.status {
+  align-self: flex-end;
+  line-height: 20px;
+  margin: 0;
+}
+.statusOpen {
+  color: #00FF00;
+  align-self: flex-end;
+  line-height: 20px;
+  margin: 0;
+}
+.statusClosed {
+  color: #B2BBBD;
+  align-self: flex-end;
+  line-height: 20px;
+  margin: 0;
+}
+.statusFinished {
+  color: red;
+  align-self: flex-end;
+  line-height: 20px;
+  margin: 0;
+}
+#header {
+  display: flex;
+  justify-content: space-between;
+}
+#dateContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-bottom: 2%;
+}
+.dateText {
+  margin: 0;
+}
+/****************************
+ *     MOBILE ATTRIBUTES    *
+ ****************************/
+#mobileName {
+  line-height: 40px;
+  margin: 0;
+  align-self: center;
+}
+#mobileBackground {
+  width: fit-content;
+  padding-left: 11px;
+  padding-right: 11px;
+}
+#mobileButtonContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 2%;
+}

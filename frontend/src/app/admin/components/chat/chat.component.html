@@ -1,0 +1,70 @@
+<section class="greyBackground">
+  <div class="chatContainer">
+    <section id="chatHeaderContainer" *ngIf="!isMobile">
+      <div id="buttonContainer">
+        <button class="normalGreyButton" style="color: #B2BBBD;" (click)="displayGlobal()" *ngIf="selectedChat !== 'GLOBAL'">Global</button>
+        <button class="normalGreyButton" style="border-color: #FEA520" disabled *ngIf="selectedChat === 'GLOBAL'">Global</button>
+        <button class="normalGreyButton" style="color: #B2BBBD;" *ngIf="selectedChat !== 'HUMAN'" (click)="displayHuman()" >Human</button>
+        <button class="normalGreyButton" style="border-color: #FEA520" disabled *ngIf="selectedChat === 'HUMAN'">Human</button>
+        <button id="zombieButton" class="normalGreyButton" style="color: #B2BBBD;" *ngIf="selectedChat !== 'ZOMBIE'" (click)="displayZombie()">Zombie</button>
+        <button id="zombieButtonDis" class="normalGreyButton" style="border-color: #FEA520" disabled *ngIf="selectedChat === 'ZOMBIE'">Zombie</button>
+      </div>
+      <div class="selectorContainer">
+        <select class="chatHeaderSelector" style="border-color: #FEA520"  *ngIf="selectedChat === 'SQUAD'" (click)="loadSquadChat($event)">
+          <option [value]="squad.id" *ngFor="let squad of squads">{{squad.name}}</option>
+        </select>
+        <select style="color: #B2BBBD" class="chatHeaderSelector"  *ngIf="selectedChat !== 'SQUAD'" (click)="loadSquadChat($event)">
+          <option [value]="squad.id" *ngFor="let squad of squads">{{squad.name}}</option>
+        </select>
+        <select class="chatHeaderSelector" style="border-color: #FEA520" *ngIf="selectedChat === 'PLAYER'" (click)="loadPlayerChat($event)">
+          <option [value]="player.id" *ngFor="let player of players">{{player.name}}</option>
+        </select>
+        <select style="color: #B2BBBD" *ngIf="selectedChat !== 'PLAYER'" class="chatHeaderSelector" (click)="loadPlayerChat($event)">
+          <option [value]="player.id" *ngFor="let player of players">{{player.name}}</option>
+        </select>
+      </div>
+    </section>
+
+
+    <section id="chatHeaderContainerMobile" *ngIf="isMobile">
+      <div id="buttonContainerMobile">
+        <button class="normalGreyButton" style="color: #B2BBBD;" (click)="displayGlobal()" *ngIf="selectedChat !== 'GLOBAL'">Global</button>
+        <button class="normalGreyButton" style="border-color: #FEA520" disabled *ngIf="selectedChat === 'GLOBAL'">Global</button>
+        <button class="normalGreyButton" style="color: #B2BBBD;" *ngIf="selectedChat !== 'HUMAN'" (click)="displayHuman()" >Human</button>
+        <button class="normalGreyButton" style="border-color: #FEA520" disabled *ngIf="selectedChat === 'HUMAN'">Human</button>
+        <button class="normalGreyButton" style="color: #B2BBBD;" *ngIf="selectedChat !== 'ZOMBIE'" (click)="displayZombie()">Zombie</button>
+        <button class="normalGreyButton" style="border-color: #FEA520" disabled *ngIf="selectedChat === 'ZOMBIE'">Zombie</button>
+      </div>
+      <div class="selectorContainer">
+        <select class="chatHeaderSelectorMobile" (click)="loadSquadChat($event)">
+          <option [value]="squad.id" *ngFor="let squad of squads">{{squad.name}}</option>
+        </select>
+        <select class="chatHeaderSelectorMobile" (click)="loadPlayerChat($event)">
+          <option [value]="player.id" *ngFor="let player of players">{{player.name}}</option>
+        </select>
+      </div>
+    </section>
+
+
+    <section id="messageContainer" #chat [scrollTop]="chat.scrollHeight" *ngIf="!isMobile">
+      <app-message *ngFor="let message of chatMessages"
+                   [timeSent]="message.time"
+                   [sender]="message.sender"
+                   [message]="message.content">
+      </app-message>
+    </section>
+    <section id="mobileMessageContainer" #chat [scrollTop]="chat.scrollHeight" *ngIf="isMobile">
+      <app-message *ngFor="let message of chatMessages"
+                   [timeSent]="message.time"
+                   [sender]="message.sender"
+                   [message]="message.content">
+      </app-message>
+    </section>
+    <form class="sendContainer" *ngIf="selectedChat != 'PLAYER'">
+      <input id="chatInput" maxlength="255" type="text" placeholder="Type a chat message..." [(ngModel)]="submitText" (keydown.enter)="submitChat()" name="chatInput">
+      <button id="chatButton" class="normalGreyButton" type="submit" (click)="submitChat()">
+        Send
+      </button>
+    </form>
+  </div>
+</section>

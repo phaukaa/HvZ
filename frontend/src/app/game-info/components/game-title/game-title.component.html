@@ -1,0 +1,6 @@
+<section class="gameTitleContainer">
+  <img src="assets/HvZ_logo.png" alt="Back to home page" (click)="toHome()" style="height: 80px">
+  <h1 id="title">{{gameTitle}}</h1>
+  <button class="normalGreyButton" (click)="joinGameClicked()" *ngIf="!playerHasJoined">Join Game</button>
+</section>
+

@@ -1,0 +1,6 @@
+<section class="blackBackground">
+  <h3>Name: {{player.name}}</h3>
+  <h3 style="color: #FF0000" *ngIf="!player.human">Faction: Zombie</h3>
+  <h3 style="color: #00FF00" *ngIf="player.human">Faction: Human</h3>
+  <h3 *ngIf="player.human">BiteCode: {{player.biteCode}}</h3>
+</section>

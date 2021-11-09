@@ -1,0 +1,19 @@
+<mat-card-title class="text">{{data.name}}</mat-card-title>
+<h3 class="text">Bite Code: {{data.biteCode}}</h3>
+<mat-slide-toggle [(ngModel)]="data.human">
+  <p class="text" *ngIf="data.human">Human</p>
+  <p class="text" *ngIf="!data.human">Zombie</p>
+</mat-slide-toggle>
+<mat-dialog-content id="collapsibleInfoContainer">
+  <section id="kills">
+    <h3 class="text">Kills:</h3>
+    <div id="kill" *ngFor="let kill of data.kills">
+      <p>{{kill.victimName}}</p>
+      <p>{{kill.story}}</p>
+    </div>
+  </section>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="normalGreyButton" (click)="closeDialog(false)">DELETE</button>
+  <button class="normalGreyButton" (click)="closeDialog(true)">Save</button>
+</mat-dialog-actions>

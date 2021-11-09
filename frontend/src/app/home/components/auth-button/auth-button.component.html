@@ -1,0 +1,37 @@
+<section id="authContainer" class="blackBackground" *ngIf="!isMobile">
+  <section class="infoContainer" *ngIf="auth.user$ | async as user">
+    <h2>Logged in as:</h2>
+    <h3 class="name">{{ user.name }}</h3>
+  </section>
+  <section class="buttonContainer">
+    <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+      <button (click)="auth.logout({ returnTo: document.location.origin })" id="normalButton" class="normalGreyButton">
+        Log out
+      </button>
+    </ng-container>
+
+    <ng-template #loggedOut>
+      <button (click)="auth.loginWithRedirect()" id="normalButton2" class="normalGreyButton">Log in</button>
+    </ng-template>
+  </section>
+</section>
+
+<!-- ************************************************  MOBILE VIEW  ************************************************ -->
+<section id="authContainerMobile" class="blackBackground" *ngIf="isMobile">
+  <section class="infoContainer" *ngIf="auth.user$ | async as user">
+    <h2 id="mobileText">Logged in as:</h2>
+    <h3 class="name">{{ user.name }}</h3>
+  </section>
+  <section class="buttonContainer">
+    <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+      <button (click)="auth.logout({ returnTo: document.location.origin })" class="normalGreyButton">
+        Log out
+      </button>
+    </ng-container>
+
+    <ng-template #loggedOut>
+      <button (click)="auth.loginWithRedirect()" class="normalGreyButton">Log in</button>
+    </ng-template>
+  </section>
+</section>
+

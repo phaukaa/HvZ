@@ -1,0 +1,125 @@
+#messageContainer {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 3px;
+  flex: 2;
+}
+.chatContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#buttonContainer {
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: 20%;
+  align-self: flex-end;
+  column-gap: 2%;
+  width: 100%;
+  margin-bottom: 1%;
+}
+#chatTitle {
+  align-self: flex-end;
+  margin-left: 5%;
+  font-size: 200%;
+  line-height: 20%;
+}
+.sendContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-self: flex-end;
+  padding-top: 2%;
+  margin-bottom: 1%;
+}
+#chatButton {
+  margin-right: 17px;
+  width: 30%;
+}
+#chatInput {
+  background-color: black;
+  border: 1px solid #B2BBBD;
+  font-weight: bold;
+  width: 80%;
+  padding: 5px;
+  color: #B2BBBD;
+  font-size: 15px;
+}
+.normalGreyButton {
+  font-size: 150%;
+  width: 120%;
+}
+#chatHeaderContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1%;
+  padding-bottom: 1%;
+  margin-bottom: 1%;
+  align-self: flex-end;
+  flex-wrap: wrap;
+  border-bottom: #FEA520 1px solid;
+}
+.chatHeaderSelector {
+  /* Buttons and selects for the chat header */
+  background: #272D2D;
+  border: 2px solid #B2BBBD;
+  box-sizing: border-box;
+  width: 49%;
+  height: 120%;
+  font-family: Gemunu Libre, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  align-items: center;
+  color: #FEA520;
+  font-size: 120%;
+}
+.selectorContainer {
+  display: flex;
+  font-size: 100%;
+  width: 100%;
+  justify-content: space-around;
+  margin-bottom: 1%;
+}
+/****************************
+ *     MOBILE ATTRIBUTES    *
+ ****************************/
+#mobileMessageContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3px;
+  flex: 2;
+}
+#buttonContainerMobile {
+  display: flex;
+  justify-content: space-around;
+  margin-right: 20%;
+  align-self: flex-end;
+  column-gap: 2%;
+  width: 100%;
+}
+.chatHeaderSelectorMobile {
+  /* Buttons and selects for the chat header */
+  background: #272D2D;
+  border: 2px solid #B2BBBD;
+  box-sizing: border-box;
+  width: 45vw;
+  height: fit-content;
+  font-family: Gemunu Libre, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  align-items: center;
+  color: #FEA520;
+  font-size: 168%;
+}
+#chatHeaderContainerMobile {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1%;
+  align-self: flex-end;
+  flex-wrap: wrap;
+}

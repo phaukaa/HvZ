@@ -1,0 +1,35 @@
+<section class="greyBackground">
+  <!--Needs both the versions of width and height to work-->
+  <google-map id="map" *ngIf="!isMobile"
+              [options]="options"
+              [center]="center"
+              height="100%" width="100%"
+              style="height: 100%; width: 100%"
+  >
+    <map-rectangle [bounds]="bounds" [options]="mapRectangleOptions" *ngIf="showBounds"></map-rectangle>
+    <map-marker #mapMarker="mapMarker"
+      *ngFor="let marker of markers"
+      [position]="marker.position"
+      [options]="marker.options"
+      (mapClick)="openInfoWindow(mapMarker, marker.description)"
+    ></map-marker>
+    <map-info-window></map-info-window>
+  </google-map>
+
+
+<!-- ************************************************  MOBILE VIEW  ************************************************ -->
+  <google-map id="mobileMap" *ngIf="isMobile"
+              [options]="options"
+              height="30vh" width="100%"
+              style="height: 100%; width: 100%"
+  >
+    <map-rectangle [bounds]="bounds"></map-rectangle>
+    <map-marker #mapMarker="mapMarker"
+                *ngFor="let marker of markers"
+                [position]="marker.position"
+                [options]="marker.options"
+                (mapClick)="openInfoWindow(mapMarker, marker.description)"
+    ></map-marker>
+    <map-info-window></map-info-window>
+  </google-map>
+</section>

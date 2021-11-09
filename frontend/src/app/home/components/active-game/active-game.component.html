@@ -1,0 +1,48 @@
+<section class="blackBackground" *ngIf="!isMobile">
+  <section id="header">
+    <h2 id="name">{{gameName}}</h2>
+    <h2 id="playerAmount">{{playerAmount}} players</h2>
+  </section>
+  <section id="buttonContainer" *ngIf="auth.user$ | async as user">
+    <button class="normalGreyButton" (click)="toGameInfo(gameId,playerID)" *ngIf="gameStatus != 'Complete' && !isAdmin">Game Info</button>
+    <button class="normalGreyButton" (click)="toGameInfoAdmin(gameId)" *ngIf="isAdmin">Manage Game</button>
+    <div id="buttonPlaceholder" class="normalGreyButton" *ngIf="gameStatus === 'Complete'">x</div>
+  </section>
+
+  <div id="dateContainer">
+    <h4 class="dateText" *ngIf="startTime != null">Start: {{startTime}}</h4>
+    <h4 class="dateText" *ngIf="endTime != null">End: &nbsp; {{endTime}}</h4>
+  </div>
+  <section class="infoContainer">
+    <div class="statusContainer">
+      <h3 class="status">Status: &nbsp;</h3>
+      <h3 class="statusOpen" *ngIf="gameStatus == 'Registration'">Can register</h3>
+      <h3 class="statusClosed" *ngIf="gameStatus == 'Closed'">In progress</h3>
+      <h3 class="statusFinished" *ngIf="gameStatus == 'Complete'">Finished</h3>
+    </div>
+    <div class="joinedContainer" *ngIf="playerID != null">
+      <h4 class="joined">Joined</h4>
+    </div>
+  </section>
+</section>
+
+<!-- ************************************************  MOBILE VIEW  ************************************************ -->
+<section class="blackBackground" id="mobileBackground" *ngIf="isMobile">
+  <h4 id="mobileName">{{gameName}}</h4>
+  <section id="mobileButtonContainer" *ngIf="auth.user$ | async as user">
+    <button class="normalGreyButtonMobile" (click)="toGameInfo(gameId,playerID)" *ngIf="gameStatus != 'Complete'">Game Info</button>
+    <button class="normalGreyButtonMobile" (click)="toGameInfoAdmin(gameId)" *ngIf="isAdmin">Manage Game</button>
+  </section>
+
+  <section class="infoContainer">
+    <div class="statusContainer" *ngIf="playerID == null">
+      <h5 class="status">Status: &nbsp;</h5>
+      <h5 class="statusOpen" *ngIf="gameStatus == 'Registration'">Can register</h5>
+      <h5 class="statusClosed" *ngIf="gameStatus == 'Closed'">In progress</h5>
+      <h5 class="statusFinished" *ngIf="gameStatus == 'Complete'">Finished</h5>
+    </div>
+    <div class="joinedContainer" *ngIf="playerID != null">
+      <h5 class="joined">Joined</h5>
+    </div>
+  </section>
+</section>

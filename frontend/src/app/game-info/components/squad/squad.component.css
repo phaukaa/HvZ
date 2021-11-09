@@ -1,0 +1,51 @@
+.squadContainer {
+  overflow-y: auto;
+  max-height: 30vh;
+}
+#memberContainer {
+  max-height: 20vh;
+  overflow-y: auto;
+  margin-top: 1%;
+  border-top: #FEA520 1px solid;
+}
+#memberItem {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: #FEA520 solid 1px;
+  margin-right: 5px;
+}
+p {
+  height: 0;
+}
+h3 {
+  height: 0;
+}
+h2 {
+  height: 5px;
+}
+#living {
+  color: #00FF00;
+}
+#dead {
+  color: red;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+/****************************
+ *     MOBILE ATTRIBUTES    *
+ ****************************/
+#memberContainerMobile {
+  margin-top: 1%;
+  width: 100%;
+  border-top: #FEA520 1px solid;
+}
+#memberItemMobile {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: #FEA520 solid 1px;
+  margin-right: 5px;
+}

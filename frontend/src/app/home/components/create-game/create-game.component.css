@@ -1,0 +1,14 @@
+#title {
+  font-size: 130%;
+  font-weight: bold;
+}
+#description {
+  font-weight: bold;
+  font-size: 110%;
+}
+.text {
+  color: #B2BBBD;
+}
+::placeholder {
+  color: #B2BBBD;
+}

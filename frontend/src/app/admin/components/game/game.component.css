@@ -1,0 +1,11 @@
+.gameDescriptionContainer {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+#description {
+  width: 100%;
+  min-height: 60%;
+  font-weight: bold;
+  font-size: 120%;
+}

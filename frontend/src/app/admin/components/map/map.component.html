@@ -1,0 +1,38 @@
+<section class="greyBackground">
+  <!--Needs both the versions of width and height to work-->
+  <google-map *ngIf="!isMobile"
+              [options]="options"
+              height="100%" width="100%"
+              style="height: 100%; width: 100%"
+              (mapClick)="mapClick($event.latLng, false)"
+  >
+    <map-rectangle (rectangleClick)="mapClick($event.latLng, true)" [bounds]="bounds" [options]="mapRectangleOptions" *ngIf="showBounds"></map-rectangle>
+    <map-marker
+      *ngFor="let marker of markers"
+      [position]="marker.position"
+      [options]="marker.options"
+      (mapClick)="editMarker(marker.id, marker.type)">
+    </map-marker>
+  </google-map>
+
+
+<!-- ************************************************  MOBILE VIEW  ************************************************ -->
+  <google-map *ngIf="isMobile"
+              [options]="options"
+              height="30vh" width="100%"
+              style="height: 100%; width: 100%"
+              (mapClick)="mapClick($event.latLng, false)"
+  >
+    <map-marker
+      *ngFor="let marker of markers"
+      [position]="marker.position"
+      [options]="marker.options"
+      (mapClick)="editMarker(marker.id, marker.type)">
+    </map-marker>
+  </google-map>
+  <section id="changeContainer">
+    <button class="normalGreyButton" id="changeButton" (click)="toggleAreaChange()">Change game area</button>
+    <p class="changeText" *ngIf="changeArea && !lastNorthWest">Set North West</p>
+    <p class="changeText" *ngIf="changeArea && lastNorthWest">Set South East</p>
+  </section>
+</section>

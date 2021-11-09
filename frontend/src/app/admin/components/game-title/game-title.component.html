@@ -1,0 +1,11 @@
+<section class="gameTitleContainer">
+  <img src="assets/HvZ_logo.png" alt="Back to home page" (click)="toHome()" style="height: 40px">
+  <textarea id="title" maxlength="255" [(ngModel)]="gameTitle" cdkTextareaAutosize></textarea>
+  <select id="stateSelector" class="normalGreyButton" [(ngModel)]="gameState">
+    <option value="Registration" selected>Registration</option>
+    <option value="Closed">In Progress</option>
+    <option value="Complete">Finished</option>
+  </select>
+  <button id="saveButton" class="normalGreyButton" (click)="saveChanges()">Save Changes</button>
+</section>
+
